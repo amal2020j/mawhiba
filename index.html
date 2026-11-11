@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>لوحة شرف مدارس عنيزة</title>
+<meta name="description" content="لوحة شرف تسجيل مدارس البنات في مقياس موهبة">
+<style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;800&display=swap">
+<style>
+/* Layout: poster-style header (green banner with navy offset shadow, navy info strip), then podium, distinguished schools, ranked list. Single light look, matching the centre's Mawhiba plan. */
+:root{
+  --ground:#F3F5F4; --paper:#FFFFFF; --ink:#17232B; --muted:#3E5560;
+  --green:#0B8556; --green-deep:#0A6B47; --navy:#173B4F; --sand:#CDBB8E; --sand-deep:#8C7640;
+  --mint:#EEF7F2; --mint-line:#D3E6DB; --track:#E4EEE8;
+  --gold:#D9B860; --gold-deep:#9C7A22; --silver:#AEB9BF; --silver-deep:#5E6E77; --bronze:#C08A5E; --bronze-deep:#7E4E2A;
+  --s-early:#B39A5A; --s-prim:#0B8556; --s-mid:#173B4F; --s-sec:#2E7A8A;
+  --gold-1:#F3DE9C; --gold-2:#C9A24A; --gold-3:#8E6B1F; --gold-grad:linear-gradient(135deg,#F3DE9C 0%,#C9A24A 45%,#8E6B1F 100%);
+  --font:"Tajawal",system-ui,"Segoe UI",Tahoma,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.7;font-weight:500}
+.wrap{max-width:1080px;margin:0 auto;padding-block:36px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:40px}
+header{display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center;background:var(--navy);border-radius:22px;padding:40px 22px 34px;position:relative;box-shadow:0 18px 40px -24px rgba(23,59,79,.8)}
+header::before{content:"";position:absolute;inset:10px;border:1px solid var(--gold-2);border-radius:16px;pointer-events:none;opacity:.8}
+header::after{content:"";position:absolute;inset:15px;border:1px solid rgba(201,162,74,.35);border-radius:12px;pointer-events:none}
+.crest{display:flex;align-items:center;gap:14px;position:relative}
+.crest span{width:90px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-2))}
+.crest span:last-child{background:linear-gradient(270deg,transparent,var(--gold-2))}
+.crest svg{width:26px;height:26px;fill:var(--gold-2)}
+.presenter-unused{font-size:clamp(19px,3vw,26px);font-weight:800;color:var(--navy);margin:0}
+.banner{position:relative;background:none;padding:4px 16px 8px;max-width:900px;width:100%}
+h1 em{font-style:normal;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1{margin:0;color:#FFFFFF;font-weight:800;font-size:clamp(28px,5.2vw,48px);line-height:1.3;text-wrap:balance}
+.strip{position:relative;display:flex;align-items:stretch;background:#10303F;color:#FFFFFF;border:1px solid var(--gold-2);box-shadow:0 5px 0 var(--gold-3);max-width:100%;flex-wrap:wrap;justify-content:center}
+.strip .lab{background:var(--gold-grad);color:var(--ink);font-weight:800;font-size:19px;padding:10px 18px;display:flex;align-items:center}
+.strip .val{padding:10px 20px;font-weight:700;font-size:19px;display:flex;align-items:center}
+.strip .sep{width:1px;background:var(--gold-2);margin:12px 0}
+.strip .yr{padding:6px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.3}
+.strip .yr small{font-size:14px;font-weight:700;color:var(--gold-1)}.strip .yr b{font-size:19px;font-weight:800}
+.lede{position:relative;color:#D6E1E6;font-size:18px;max-width:62ch;margin:6px 0 0;text-wrap:pretty}
+.lede b{color:var(--gold-1);font-weight:800}
+.sec-h{display:flex;align-items:center;gap:12px;margin:0 0 6px}
+.sec-h .dot{width:44px;height:44px;border-radius:999px;background:var(--green);box-shadow:0 0 0 3px var(--ground),0 0 0 5px var(--gold-2);display:flex;align-items:center;justify-content:center;flex:none}
+.sec-h .dot svg{width:24px;height:24px}
+h2{font-weight:800;font-size:27px;color:var(--navy);margin:0;line-height:1.3;padding-bottom:4px;background:linear-gradient(90deg,transparent,var(--gold-2)) no-repeat right bottom/100% 2px}
+.note{color:var(--muted);font-size:15px;margin:0 0 20px;padding-inline-start:56px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.kpi{background:var(--paper);border:1px solid var(--gold-2);box-shadow:inset 0 3px 0 var(--gold-2);border-radius:18px;padding:16px 18px;display:flex;align-items:center;gap:14px}
+.kpi .dot{width:52px;height:52px;border-radius:999px;background:var(--green);box-shadow:0 0 0 2px var(--paper),0 0 0 4px var(--gold-2);display:flex;align-items:center;justify-content:center;flex:none}
+.kpi .dot svg{width:26px;height:26px}
+.kpi .v{font-size:34px;font-weight:800;color:var(--navy);line-height:1.1}
+.kpi .l{color:var(--muted);font-size:15px;font-weight:700}
+
+.podium{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:end;padding-inline-end:10px}
+.medal{background:var(--paper);border:2px solid var(--green-deep);border-radius:18px;padding:22px 16px 20px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
+.medal.r1{order:2;padding-top:32px;border-color:var(--gold-2);background:linear-gradient(180deg,#FFFBEF 0%,#FFFFFF 55%);box-shadow:0 0 0 4px #FFFFFF,0 0 0 5px var(--gold-2),12px 12px 0 5px var(--navy)}
+.medal.r2{order:3;box-shadow:6px 6px 0 var(--gold-2)}.medal.r3{order:1;box-shadow:6px 6px 0 var(--gold-2)}
+.medal svg{width:86px;height:auto}.medal.r1 svg{width:116px}
+.medal .txt{display:flex;flex-direction:column;gap:4px;align-items:inherit}
+.medal .rank{font-size:14px;font-weight:800;border-radius:999px;padding:2px 14px;color:#FFFFFF;background:var(--navy)}
+.r1 .rank{background:var(--gold-grad);color:var(--ink)}
+.medal .name{font-weight:800;font-size:19px;line-height:1.45;color:var(--ink);text-wrap:balance}
+.medal .count{font-size:34px;font-weight:800;color:var(--green-deep);line-height:1.1}
+.medal .count small{font-size:15px;color:var(--muted);font-weight:700;margin-inline-start:6px}
+.medal .stage{font-size:14px;color:var(--muted);font-weight:700}
+@media (max-width:620px){.podium{grid-template-columns:1fr;padding-inline-end:8px}.medal.r1,.medal.r2,.medal.r3{order:0}.medal{flex-direction:row;text-align:start;padding:14px 16px;gap:14px}.medal svg,.medal.r1 svg{width:64px;flex:none}.medal .txt{flex:1;min-width:0;align-items:flex-start}}
+
+.distinct{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.chip{display:flex;align-items:center;gap:10px;background:linear-gradient(180deg,#FFFFFF,var(--mint));border:1px solid var(--gold-2);border-radius:14px;padding:10px 12px;min-width:0}
+.chip svg{width:32px;flex:none}
+.chip .nm{font-size:16px;font-weight:700;line-height:1.45;flex:1;min-width:0}
+.chip .ct{font-weight:800;font-size:19px;color:var(--green-deep)}
+
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.filters button{font:inherit;font-size:15px;font-weight:700;border:2px solid var(--green-deep);background:var(--paper);color:var(--green-deep);border-radius:999px;padding:6px 16px;min-height:44px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.filters button[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#FFFFFF}
+.filters button[aria-pressed="true"] .n{color:#FFFFFF}
+.filters button:focus-visible{outline:3px solid var(--sand);outline-offset:2px}
+.filters i{width:12px;height:12px;border-radius:999px;display:inline-block;box-shadow:0 0 0 2px #FFFFFF}
+.filters .n{color:var(--muted)}
+.list{background:var(--paper);border:2px solid var(--green-deep);box-shadow:0 0 0 4px var(--ground),0 0 0 5px var(--gold-2);border-radius:18px;overflow:hidden}
+.list .head{display:grid;grid-template-columns:3em minmax(0,1.25fr) minmax(0,1fr);gap:12px;background:var(--green-deep);border-bottom:3px solid var(--gold-2);color:var(--gold-1);font-weight:800;font-size:16px;padding:10px 18px}
+.rows{padding:0 18px}
+.row{display:grid;grid-template-columns:3em minmax(0,1.25fr) minmax(0,1fr);align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--mint-line)}
+.row:last-child{border-bottom:0}
+.row .rk{color:var(--muted);font-size:15px;font-weight:700;display:flex;align-items:center}
+.row .rk svg{width:28px}
+.row .nm{font-size:16px;line-height:1.45;min-width:0;overflow-wrap:anywhere}
+.row.top{background:linear-gradient(270deg,rgba(201,162,74,.12),transparent 70%)}
+.row.top .nm{font-weight:800;color:var(--navy)}
+.bar{display:flex;align-items:center;gap:8px;min-width:0}
+.bar span{height:16px;border-radius:999px;min-width:6px}
+.bar b{font-size:17px;font-weight:800;color:var(--ink)}
+@media (max-width:560px){.row,.list .head{grid-template-columns:2.6em minmax(0,1fr)}.row .bar{grid-column:2}.list .head span:last-child{display:none}}
+footer{color:var(--muted);font-size:14px;border-top:2px solid var(--gold-2);padding-top:14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+.celebrate{position:relative;z-index:1;font:inherit;font-weight:800;font-size:17px;color:var(--ink);background:var(--gold-grad);border:0;border-radius:999px;padding:10px 24px;min-height:46px;cursor:pointer;display:inline-flex;align-items:center;gap:10px;box-shadow:0 0 0 2px var(--navy),0 0 0 3px var(--gold-2),0 8px 22px -8px rgba(201,162,74,.8)}
+.celebrate svg{width:22px;height:22px;fill:var(--navy);stroke:var(--navy);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.celebrate:hover{filter:brightness(1.06)}
+.celebrate:focus-visible{outline:3px solid var(--gold-1);outline-offset:4px}
+.medal,.chip{cursor:pointer}
+#confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+@media (prefers-reduced-motion: no-preference){
+  h1 em{background-size:220% 100%;animation:shine 3.2s linear infinite}
+  @keyframes shine{0%{background-position:100% 0}100%{background-position:-120% 0}}
+  .crest svg{animation:twinkle 2.4s ease-in-out infinite;transform-origin:center}
+  @keyframes twinkle{0%,100%{transform:scale(1) rotate(0);filter:drop-shadow(0 0 0 rgba(243,222,156,0))}50%{transform:scale(1.25) rotate(18deg);filter:drop-shadow(0 0 8px rgba(243,222,156,.9))}}
+  .medal{animation:rise .8s cubic-bezier(.2,.8,.2,1.2) both}
+  .medal.r3{animation-delay:.15s}.medal.r2{animation-delay:.3s}.medal.r1{animation-delay:.5s}
+  @keyframes rise{from{transform:translateY(28px) scale(.96)}to{transform:none}}
+  .medal.r1 svg{animation:glow 2.6s ease-in-out 1.3s infinite}
+  @keyframes glow{0%,100%{filter:drop-shadow(0 0 0 rgba(201,162,74,0))}50%{filter:drop-shadow(0 0 14px rgba(201,162,74,.85))}}
+  .medal:hover,.chip:hover{transform:translateY(-3px);transition:transform .2s}
+  .celebrate{animation:pulse 2.2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 2px var(--navy),0 0 0 3px var(--gold-2),0 8px 22px -8px rgba(201,162,74,.8)}50%{box-shadow:0 0 0 2px var(--navy),0 0 0 7px rgba(201,162,74,.45),0 8px 30px -6px rgba(201,162,74,1)}}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap" dir="rtl" lang="ar">
+  <header>
+    <div class="crest" aria-hidden="true"><span></span><svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.9H22l-6 4.5 2.3 7L12 16l-6.3 4.4 2.3-7-6-4.5h7.6z"/></svg><span></span></div>
+    <div class="banner"><h1>لوحة شرف تسجيل مدارس البنات<br><em>في مقياس موهبة</em></h1></div>
+    <button type="button" class="celebrate" id="celebrate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l5-14 9 9z"/><path d="M14 4l1 2M19 5l-2 2M20 10l-2-.5M11 3.5l.3 2" fill="none"/></svg>احتفلي بالمتميزات</button>
+    <p class="lede" id="lede"></p>
+  </header>
+
+  <section class="kpis" id="kpis" aria-label="المؤشرات الرئيسية"></section>
+
+  <section id="podium-sec" aria-labelledby="podium-h">
+    <div class="sec-h"><span class="dot"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M16 5h3v2a3 3 0 0 1-3 3M8 5H5v2a3 3 0 0 0 3 3M12 13v4M8 20h8M9 17h6"/></svg></span><h2 id="podium-h">المراكز الثلاثة الأولى</h2></div>
+    <p class="note">أعلى المدارس في عدد الطالبات المسجلات في مقياس موهبة.</p>
+    <div class="podium" id="podium"></div>
+    <div class="sec-h" style="margin-top:40px"><span class="dot"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg></span><h2>مدارس متميزة في التسجيل</h2></div>
+    <p class="note">بقية المراكز العشرة الأولى، والمدارس المتساوية في العدد تشترك في المركز نفسه.</p>
+    <div class="distinct" id="distinct"></div>
+  </section>
+
+  <section id="all" aria-labelledby="all-h">
+    <div class="sec-h"><span class="dot"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg></span><h2 id="all-h">تسجيل كل مدرسة</h2></div>
+    <p class="note">جميع مدارس البنات مرتبة من الأكثر تسجيلًا. لون العمود يدل على المرحلة، والدرع يميز المراكز العشرة الأولى.</p>
+    <div class="filters" id="filters" role="group" aria-label="تصفية حسب المرحلة"></div>
+    <div class="list"><div class="head" aria-hidden="true"><span>المركز</span><span>المدرسة</span><span>عدد المسجلات</span></div><div class="rows" id="list"></div></div>
+  </section>
+
+  <footer>
+    <span>المصدر: ملف تسجيلات مقياس موهبة ٢٠٢٦م، والتسجيلات حتى ٤ نوفمبر ٢٠٢٦م.</span>
+    <span>تُعدّ المدرسة حسب إدارتها التعليمية، والمرحلة مأخوذة من اسم المدرسة.</span>
+  </footer>
+</div>
+
+<script>
+const DATA = {"total": 352, "paid": 344, "account": 278, "schools": [{"school": "متوسطة تحفيظ القرآن الثانية", "n": 43, "rank": 1, "stage": "متوسط"}, {"school": "الابتدائية الرابعة والعشرون", "n": 29, "rank": 2, "stage": "ابتدائي"}, {"school": "المتوسطة الأولى", "n": 25, "rank": 3, "stage": "متوسط"}, {"school": "متوسطة مجمع حمد صالح الحركان لتحفيظ القرآن الكريم", "n": 20, "rank": 4, "stage": "متوسط"}, {"school": "الابتدائية العاشرة", "n": 13, "rank": 5, "stage": "ابتدائي"}, {"school": "ابتدائية تحفيظ القرآن الثالثة", "n": 12, "rank": 6, "stage": "ابتدائي"}, {"school": "المتوسطة الثالثة", "n": 11, "rank": 7, "stage": "متوسط"}, {"school": "الابتدائية الثامنة والعشرون", "n": 10, "rank": 8, "stage": "ابتدائي"}, {"school": "ابتدائية عنيزة العالمية", "n": 8, "rank": 9, "stage": "ابتدائي"}, {"school": "الابتدائية الثالثة عشرة", "n": 8, "rank": 9, "stage": "ابتدائي"}, {"school": "المتوسطة العاشرة", "n": 8, "rank": 9, "stage": "متوسط"}, {"school": "ابتدائية تحفيظ القرآن الأولى", "n": 7, "rank": 12, "stage": "ابتدائي"}, {"school": "المتوسطة الرابعة عشرة", "n": 7, "rank": 12, "stage": "متوسط"}, {"school": "المدرسة الثامنة عشرة للطفولة المبكرة", "n": 7, "rank": 12, "stage": "طفولة مبكرة"}, {"school": "الابتدائية الثامنة والثلاثون", "n": 6, "rank": 15, "stage": "ابتدائي"}, {"school": "المتوسطة الحادية عشرة", "n": 6, "rank": 15, "stage": "متوسط"}, {"school": "المتوسطة السابعة", "n": 6, "rank": 15, "stage": "متوسط"}, {"school": "المتوسطة السابعة عشرة", "n": 6, "rank": 15, "stage": "متوسط"}, {"school": "متوسطة أم المؤمنين خديجة بنت خويلد", "n": 6, "rank": 15, "stage": "متوسط"}, {"school": "الثانوية العاشرة لنظام المسارات", "n": 5, "rank": 20, "stage": "ثانوي"}, {"school": "المتوسطة الثانية عشرة", "n": 5, "rank": 20, "stage": "متوسط"}, {"school": "المدرسة الرابعة لتحفيظ القرآن الكريم للطفولة المبكرة", "n": 5, "rank": 20, "stage": "طفولة مبكرة"}, {"school": "المدرسة السادسة للطفولة المبكرة", "n": 5, "rank": 20, "stage": "طفولة مبكرة"}, {"school": "الابتدائية الثالثة", "n": 4, "rank": 24, "stage": "ابتدائي"}, {"school": "المتوسطة الثامنة عشرة", "n": 4, "rank": 24, "stage": "متوسط"}, {"school": "المتوسطة الخامسة عشرة", "n": 4, "rank": 24, "stage": "متوسط"}, {"school": "الابتدائية الأولى", "n": 3, "rank": 27, "stage": "ابتدائي"}, {"school": "الابتدائية التاسعة والعشرون", "n": 3, "rank": 27, "stage": "ابتدائي"}, {"school": "الابتدائية السادسة عشرة", "n": 3, "rank": 27, "stage": "ابتدائي"}, {"school": "المتوسطة الثامنة", "n": 3, "rank": 27, "stage": "متوسط"}, {"school": "المتوسطة الرابعة", "n": 3, "rank": 27, "stage": "متوسط"}, {"school": "المتوسطة السادسة عشرة", "n": 3, "rank": 27, "stage": "متوسط"}, {"school": "المدرسة الحادية عشرة للطفولة المبكرة", "n": 3, "rank": 27, "stage": "طفولة مبكرة"}, {"school": "المدرسة الحادية والعشرون للطفولة المبكرة", "n": 3, "rank": 27, "stage": "طفولة مبكرة"}, {"school": "المدرسة الخامسة والعشرون للطفولة المبكرة", "n": 3, "rank": 27, "stage": "طفولة مبكرة"}, {"school": "المدرسة السابعة والثلاثون للطفولة المبكرة", "n": 3, "rank": 27, "stage": "طفولة مبكرة"}, {"school": "متوسطة عنيزة العالمية", "n": 3, "rank": 27, "stage": "متوسط"}, {"school": "مدرسة الفاروق للطفولة المبكرة", "n": 3, "rank": 27, "stage": "طفولة مبكرة"}, {"school": "مدرسة علي بن أبي طالب للطفولة المبكرة", "n": 3, "rank": 27, "stage": "طفولة مبكرة"}, {"school": "ابتدائية الدكتورة لولوة النعيم", "n": 2, "rank": 40, "stage": "ابتدائي"}, {"school": "ابتدائية العونية", "n": 2, "rank": 40, "stage": "ابتدائي"}, {"school": "الابتدائية الرابعة", "n": 2, "rank": 40, "stage": "ابتدائي"}, {"school": "الثانوية التاسعة لنظام المسارات", "n": 2, "rank": 40, "stage": "ثانوي"}, {"school": "الثانوية الثانية عشرة لنظام المسارات", "n": 2, "rank": 40, "stage": "ثانوي"}, {"school": "الثانوية الرابعة لنظام المسارات", "n": 2, "rank": 40, "stage": "ثانوي"}, {"school": "المتوسطة الخامسة", "n": 2, "rank": 40, "stage": "متوسط"}, {"school": "المدرسة الثالثة والثلاثون للطفولة المبكرة", "n": 2, "rank": 40, "stage": "طفولة مبكرة"}, {"school": "مدارس مآثر الأهلية - متوسط", "n": 2, "rank": 40, "stage": "متوسط"}, {"school": "مدرسة وادي الجناح للطفولة المبكرة", "n": 2, "rank": 40, "stage": "طفولة مبكرة"}, {"school": "ابتدائية مجمع حمد صالح الحركان لتحفيظ القرآن الكريم", "n": 1, "rank": 50, "stage": "ابتدائي"}, {"school": "الإبتدائية الثالثة والعشرون", "n": 1, "rank": 50, "stage": "ابتدائي"}, {"school": "الابتدائية الثانية والعشرون", "n": 1, "rank": 50, "stage": "ابتدائي"}, {"school": "الابتدائية السادسة والثلاثون", "n": 1, "rank": 50, "stage": "ابتدائي"}, {"school": "الثانوية الأولى لنظام المسارات", "n": 1, "rank": 50, "stage": "ثانوي"}, {"school": "الثانوية الثالثة عشرة لنظام المسارات", "n": 1, "rank": 50, "stage": "ثانوي"}, {"school": "الثانوية الحادية عشرة لنظام المسارات", "n": 1, "rank": 50, "stage": "ثانوي"}, {"school": "الثانوية الخامسة لنظام المسارات", "n": 1, "rank": 50, "stage": "ثانوي"}, {"school": "الثانوية السابعة لنظام المسارات", "n": 1, "rank": 50, "stage": "ثانوي"}, {"school": "الثانوية السادسة لنظام المسارات", "n": 1, "rank": 50, "stage": "ثانوي"}, {"school": "المتوسطة التاسعة", "n": 1, "rank": 50, "stage": "متوسط"}, {"school": "المتوسطة السادسة", "n": 1, "rank": 50, "stage": "متوسط"}, {"school": "المدرسة الثانية للطفولة المبكرة", "n": 1, "rank": 50, "stage": "طفولة مبكرة"}, {"school": "المدرسة السابعة والعشرون للطفولة المبكرة", "n": 1, "rank": 50, "stage": "طفولة مبكرة"}, {"school": "المدرسة السادسة والعشرون للطفولة المبكرة", "n": 1, "rank": 50, "stage": "طفولة مبكرة"}, {"school": "ثانوية أم المؤمنين عائشة بنت أبي بكر لنظام المسارات", "n": 1, "rank": 50, "stage": "ثانوي"}, {"school": "ثانوية مدارس عنيزة العالمية", "n": 1, "rank": 50, "stage": "ثانوي"}, {"school": "متوسطة الوهلان", "n": 1, "rank": 50, "stage": "متوسط"}, {"school": "مدارس مآثر الاهلي - ابتدائي", "n": 1, "rank": 50, "stage": "ابتدائي"}, {"school": "مدرسة أبي بكر الصديق للطفولة المبكرة", "n": 1, "rank": 50, "stage": "طفولة مبكرة"}, {"school": "مدرسة الإمام الشافعي للطفولة المبكرة", "n": 1, "rank": 50, "stage": "طفولة مبكرة"}, {"school": "مدرسة المأمون للطفولة المبكرة", "n": 1, "rank": 50, "stage": "طفولة مبكرة"}, {"school": "مدرسة عثمان بن عفان للطفولة المبكرة", "n": 1, "rank": 50, "stage": "طفولة مبكرة"}]};
+const STAGES = [
+  {key:'طفولة مبكرة', color:'var(--s-early)'},
+  {key:'ابتدائي', color:'var(--s-prim)'},
+  {key:'متوسط', color:'var(--s-mid)'},
+  {key:'ثانوي', color:'var(--s-sec)'}
+];
+const stageColor = (k) => (STAGES.find((s) => s.key === k) || {}).color || 'var(--muted)';
+const fmt = new Intl.NumberFormat('ar-SA-u-nu-arab');
+const pctf = (x, d) => new Intl.NumberFormat('ar-SA-u-nu-arab', {minimumFractionDigits: d, maximumFractionDigits: d}).format(x) + '٪';
+const el = (tag, attrs = {}, kids = []) => {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) { if (k === 'text') e.textContent = v; else if (k === 'style') e.style.cssText = v; else e.setAttribute(k, v); }
+  [].concat(kids).forEach((c) => c && e.append(c));
+  return e;
+};
+const NS = 'http://www.w3.org/2000/svg';
+let uid = 0;
+function shield(rank, tone) {
+  // tone: gold | silver | bronze | accent
+  const id = 'g' + (uid++);
+  const svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('viewBox', '0 0 100 116');
+  svg.setAttribute('role', 'img');
+  svg.setAttribute('aria-label', 'درع المركز ' + rank);
+  const c = tone === 'accent' ? ['var(--green)', 'var(--green-deep)'] : [`var(--${tone})`, `var(--${tone}-deep)`];
+  svg.innerHTML =
+    `<defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c[0]}"/><stop offset="1" stop-color="${c[1]}"/></linearGradient></defs>` +
+    `<path d="M50 4 L92 18 V54 C92 82 74 100 50 112 C26 100 8 82 8 54 V18 Z" fill="url(#${id})"/>` +
+    `<path d="M50 14 L83 25 V54 C83 76 69 91 50 101 C31 91 17 76 17 54 V25 Z" fill="none" stroke="${tone === 'accent' ? '#E2C46F' : '#FFFFFF'}" stroke-opacity="${tone === 'accent' ? 1 : .55}" stroke-width="${tone === 'accent' ? 4 : 2.5}"/>` +
+    (tone !== 'accent' ? `<path d="M30 30 L36 40 L44 30 L50 42 L56 30 L64 40 L70 30 L67 48 H33 Z" fill="#FFFFFF" fill-opacity=".9"/>` : '') +
+    `<text x="50" y="${tone !== 'accent' ? 82 : 70}" text-anchor="middle" font-family="Tajawal, sans-serif" font-weight="800" font-size="${tone !== 'accent' ? 30 : 38}" fill="#FFFFFF">${fmt.format(rank)}</text>`;
+  return svg;
+}
+
+const KPI_ICONS = [
+  '<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>',
+  '<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg>',
+  '<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>',
+  '<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg>'
+];
+const S = DATA.schools; // sorted desc
+const total = DATA.total;
+const top8 = S.slice(0, 8).reduce((t, s) => t + s.n, 0);
+
+// lede
+const lede = document.getElementById('lede');
+lede.append('شاركت ', el('b', {text: fmt.format(S.length)}),
+  ' مدرسة بنات. تتقدم ', el('b', {text: S[0].school}), ' بـ', el('b', {text: fmt.format(S[0].n)}),
+  ' مسجلة، وسجّلت أعلى ٨ مدارس ', el('b', {text: pctf(top8 / total * 100, 0)}), ' من الإجمالي.');
+
+// kpis
+[[fmt.format(S.length), 'مدرسة مشاركة', S.length, 0, false],
+ [pctf(DATA.paid / total * 100, 1), 'أكملن السداد', DATA.paid / total * 100, 1, true], [pctf(DATA.account / total * 100, 0), 'لديهن حساب في موهبة', DATA.account / total * 100, 0, true]]
+  .forEach(([v, l, num, dec, isPct], i) => { const dot = el('span', {class: 'dot'}); dot.innerHTML = KPI_ICONS[i + 1]; document.getElementById('kpis').append(el('div', {class: 'kpi'}, [dot, el('div', {}, [el('div', {class: 'v', text: v, 'data-count': num, 'data-dec': dec, 'data-pct': isPct ? '1' : ''}), el('div', {class: 'l', text: l})])])); });
+
+// podium
+const tones = ['gold', 'silver', 'bronze'];
+const ord = ['الأول','الثاني','الثالث'];
+S.filter((s) => s.rank <= 3).forEach((s) => {
+  const count = el('div', {class: 'count'}); count.append(el('span', {text: fmt.format(s.n), 'data-count': s.n, 'data-dec': 0}), el('small', {text: 'مسجلة'}));
+  document.getElementById('podium').append(el('article', {class: 'medal r' + s.rank}, [
+    shield(s.rank, tones[s.rank - 1]),
+    el('div', {class: 'txt'}, [el('div', {class: 'rank', text: 'المركز ' + ord[s.rank - 1]}), el('div', {class: 'name', text: s.school}), count, el('div', {class: 'stage', text: s.stage})])
+  ]));
+});
+S.filter((s) => s.rank > 3 && s.rank <= 10).forEach((s) => {
+  document.getElementById('distinct').append(el('div', {class: 'chip'}, [shield(s.rank, 'accent'), el('div', {class: 'nm', text: s.school}), el('div', {class: 'ct', text: fmt.format(s.n)})]));
+});
+
+// filters + list
+let current = 'all';
+const filters = document.getElementById('filters');
+const mkBtn = (key, label, color, n) => {
+  const b = el('button', {type: 'button', id: 'f-' + (STAGES.findIndex((s) => s.key === key) + 1), 'aria-pressed': String(key === current)});
+  if (color) b.append(el('i', {style: 'background:' + color}));
+  b.append(label + ' ', el('span', {class: 'n', text: '(' + fmt.format(n) + ')'}));
+  b.addEventListener('click', () => { current = key; filters.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b))); renderList(); });
+  return b;
+};
+filters.append(mkBtn('all', 'كل المراحل', null, S.length));
+STAGES.forEach((s) => filters.append(mkBtn(s.key, s.key, s.color, S.filter((x) => x.stage === s.key).length)));
+
+const max = S[0].n;
+function renderList() {
+  const list = document.getElementById('list');
+  list.replaceChildren();
+  S.forEach((s, i) => {
+    if (current !== 'all' && s.stage !== current) return;
+    const rank = s.rank;
+    const rk = el('div', {class: 'rk'});
+    if (rank <= 3) rk.append(shield(rank, tones[rank - 1])); else if (rank <= 10) rk.append(shield(rank, 'accent')); else rk.append(fmt.format(rank));
+    list.append(el('div', {class: 'row' + (rank <= 10 ? ' top' : '')}, [
+      rk,
+      el('div', {class: 'nm', text: s.school}),
+      el('div', {class: 'bar', title: s.stage}, [el('span', {style: `width:${(s.n / max * 100).toFixed(1)}%;background:${stageColor(s.stage)}`}), el('b', {text: fmt.format(s.n)})])
+    ]));
+  });
+}
+renderList();
+
+// ---------- celebration ----------
+(() => {
+  const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // count-up
+  document.querySelectorAll('[data-count]').forEach((n) => {
+    const target = Number(n.dataset.count), dec = Number(n.dataset.dec) || 0, pct = !!n.dataset.pct;
+    const show = (v) => { n.textContent = pct ? pctf(v, dec) : fmt.format(Math.round(v)); };
+    if (calm) return show(target);
+    const t0 = performance.now(), dur = 1400;
+    const step = (t) => { const k = Math.min(1, (t - t0) / dur); show(target * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  });
+  if (calm) return;
+  const cv = document.createElement('canvas');
+  cv.id = 'confetti';
+  cv.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(cv);
+  const ctx = cv.getContext('2d');
+  let W = 0, H = 0, parts = [], running = false;
+  const size = () => { const d = Math.min(2, window.devicePixelRatio || 1); W = innerWidth; H = innerHeight; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0); };
+  size(); addEventListener('resize', size);
+  const COLORS = ['#F3DE9C', '#C9A24A', '#E2C46F', '#8E6B1F', '#0B8556', '#FFFFFF', '#173B4F'];
+  function burst(x, y, n = 140, spread = 1) {
+    for (let i = 0; i < n; i++) {
+      const a = -Math.PI / 2 + (Math.random() - .5) * Math.PI * 1.3 * spread;
+      const v = 6 + Math.random() * 9;
+      parts.push({x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, r: Math.random() * Math.PI, vr: (Math.random() - .5) * .35,
+        w: 6 + Math.random() * 7, h: 4 + Math.random() * 6, c: COLORS[(Math.random() * COLORS.length) | 0], shape: Math.random() < .25 ? 'star' : Math.random() < .5 ? 'circle' : 'rect', life: 0});
+    }
+    if (!running) { running = true; requestAnimationFrame(tick); }
+  }
+  function star(r) { ctx.beginPath(); for (let i = 0; i < 10; i++) { const rad = i % 2 ? r * .45 : r; const a = i * Math.PI / 5 - Math.PI / 2; ctx.lineTo(Math.cos(a) * rad, Math.sin(a) * rad); } ctx.closePath(); ctx.fill(); }
+  function tick() {
+    ctx.clearRect(0, 0, W, H);
+    parts = parts.filter((p) => p.y < H + 40 && p.life < 420);
+    for (const p of parts) {
+      p.life++; p.vy += .22; p.vx *= .985; p.vy *= .985; p.x += p.vx + Math.sin(p.life / 12) * .6; p.y += p.vy; p.r += p.vr;
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r); ctx.fillStyle = p.c; ctx.globalAlpha = Math.max(0, 1 - p.life / 420);
+      if (p.shape === 'circle') { ctx.beginPath(); ctx.arc(0, 0, p.w / 2.4, 0, Math.PI * 2); ctx.fill(); }
+      else if (p.shape === 'star') star(p.w * .8);
+      else { ctx.scale(1, Math.cos(p.life / 6)); ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); }
+      ctx.restore();
+    }
+    if (parts.length) requestAnimationFrame(tick); else { running = false; ctx.clearRect(0, 0, W, H); }
+  }
+  const fromEl = (node, n) => { const b = node.getBoundingClientRect(); burst(b.left + b.width / 2, b.top + b.height / 3, n); };
+  const celebrate = () => {
+    burst(W * .15, H * .55, 120, .8); burst(W * .85, H * .55, 120, .8);
+    setTimeout(() => burst(W * .5, H * .35, 160), 250);
+  };
+  document.getElementById('celebrate').addEventListener('click', celebrate);
+  document.querySelectorAll('.medal').forEach((m) => m.addEventListener('click', () => fromEl(m, m.classList.contains('r1') ? 200 : 110)));
+  document.querySelectorAll('.chip').forEach((c) => c.addEventListener('click', () => fromEl(c, 60)));
+  setTimeout(celebrate, 400);
+})();
+</script>
+
+</body>
+</html>
